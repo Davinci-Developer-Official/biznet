@@ -1,102 +1,110 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+
+export default function LandingPage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen flex flex-col bg-white text-gray-900">
+      {/* Navbar */}
+      <header className="w-full px-6 py-4 flex justify-between items-center shadow-sm">
+        <h1 className="text-2xl font-bold text-blue-600">BizGen</h1>
+        <nav className="space-x-6 hidden md:flex">
+          <Link href="#features" className="hover:text-blue-600">Features</Link>
+          <Link href="#pricing" className="hover:text-blue-600">Pricing</Link>
+          <Link href="#footer" className="hover:text-blue-600">Contact</Link>
+        </nav>
+        <Link
+          href="/signup"
+          className="px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+        >
+          Sign Up
+        </Link>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Hero Section */}
+      <section className="flex flex-1 flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-blue-50 to-white">
+        <h2 className="text-4xl md:text-6xl font-extrabold max-w-3xl leading-tight">
+          Generate Your <span className="text-blue-600">Business Model</span> in Minutes
+        </h2>
+        <p className="mt-6 text-lg text-gray-600 max-w-2xl">
+          Turn your raw idea into a structured, professional Business Model Canvas.
+          Perfect for startups, freelancers, and entrepreneurs.
+        </p>
+        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/gen"
+            className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 flex items-center justify-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Get Started Free →
+          </Link>
+          <Link
+            href="#pricing"
+            className="px-6 py-3 rounded-xl border border-gray-300 text-gray-800 font-semibold hover:border-blue-600 hover:text-blue-600 transition"
           >
-            Read our docs
-          </a>
+            View Pricing
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="py-20 px-6 bg-white">
+        <h3 className="text-3xl font-bold text-center mb-12">How It Works</h3>
+        <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="p-6 rounded-2xl shadow-md bg-blue-50">
+            <h4 className="text-xl font-semibold mb-3">1. Input Details</h4>
+            <p className="text-gray-600">
+              Tell us your project idea, target market, and resources.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl shadow-md bg-blue-50">
+            <h4 className="text-xl font-semibold mb-3">2. AI Processing</h4>
+            <p className="text-gray-600">
+              Our AI creates a structured Business Model Canvas.
+            </p>
+          </div>
+          <div className="p-6 rounded-2xl shadow-md bg-blue-50">
+            <h4 className="text-xl font-semibold mb-3">3. Export & Share</h4>
+            <p className="text-gray-600">
+              Download as PDF/Word and impress investors or partners.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" className="py-20 px-6 bg-gray-50">
+        <h3 className="text-3xl font-bold text-center mb-12">Pricing</h3>
+        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {/* Free Plan */}
+          <div className="p-8 rounded-2xl shadow bg-white text-center">
+            <h4 className="text-xl font-semibold">Free Plan</h4>
+            <p className="text-gray-600 mt-2">1 free generation per day</p>
+            <p className="text-4xl font-bold mt-4">$0</p>
+            <Link
+              href="/signup"
+              className="mt-6 inline-block px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700"
+            >
+              Get Started
+            </Link>
+          </div>
+          {/* Pro Plan */}
+          <div className="p-8 rounded-2xl shadow bg-white text-center border-2 border-blue-600">
+            <h4 className="text-xl font-semibold">Pro Plan</h4>
+            <p className="text-gray-600 mt-2">Unlimited generations + clean exports</p>
+            <p className="text-4xl font-bold mt-4">$10<span className="text-lg font-normal">/mo</span></p>
+            <Link
+              href="/signup"
+              className="mt-6 inline-block px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700"
+            >
+              Upgrade to Pro
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="footer" className="bg-white border-t py-6 text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} BizGen. All rights reserved.
       </footer>
     </div>
   );
